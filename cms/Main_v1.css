@@ -1,0 +1,580 @@
+/*
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../Contents/fonts/NotoSansKR-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../Contents/fonts/NotoSansKR-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../Contents/fonts/NotoSansKR-Bold.woff2') format('woff2');
+}
+*/
+
+/* Reset & Defaults */
+.cms-content-root {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+}
+
+.cms-content-root * {
+    box-sizing: border-box;
+}
+
+/* Base resets for typography and buttons within root to match Tailwind */
+.cms-content-root h2,
+.cms-content-root h3,
+.cms-content-root h4,
+.cms-content-root p {
+    margin: 0;
+    padding: 0;
+}
+.cms-content-root button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.cms-content-root a {
+    text-decoration: none;
+}
+
+/* Container */
+.cms-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+/* Header */
+.cms-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(30, 40, 60, 0.5);
+    height: 76px;
+}
+
+.cms-header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cms-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cms-logo-text {
+    color: white;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.cms-nav {
+    display: none; /* hidden on mobile */
+    align-items: center;
+    gap: 28px;
+}
+
+.cms-nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.cms-hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hero */
+.cms-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 728px;
+}
+
+.cms-hero-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.cms-hero-dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cms-hero-dot {
+    height: 4px;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Welcome Section */
+.cms-welcome {
+    background: #F7F8F9;
+    padding: 60px 0 56px;
+}
+
+.cms-welcome-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.cms-welcome-line {
+    width: 32px;
+    height: 2px;
+    background: #aaa;
+    margin-bottom: 16px;
+}
+
+.cms-welcome-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+    color: #222;
+    margin-bottom: 14px;
+}
+
+.cms-welcome-desc {
+    font-size: 17px;
+    color: #666;
+    line-height: 1.7;
+    max-width: 400px;
+}
+
+.cms-welcome-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cms-welcome-card {
+    border: 1px solid #ddd;
+    width: 130px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    gap: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0;
+}
+
+.cms-welcome-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cms-welcome-label {
+    color: #444;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Three Cards */
+.cms-three-cards {
+    background: white;
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+
+.cms-three-cards-inner {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.cms-card {
+    position: relative;
+    overflow: hidden;
+    height: 380px;
+    border-radius: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.cms-card-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.cms-card-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 28px 28px 32px;
+}
+
+.cms-card-subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.cms-card-title {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.cms-card-arrow {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.cms-card:hover .cms-card-arrow {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.3);
+}
+
+/* Church School Section */
+.cms-school {
+    position: relative;
+    padding: 70px 0;
+}
+
+.cms-school-bg-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.cms-school-bg {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    bottom: -16px;
+    left: -16px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+}
+
+.cms-school-grain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.22;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+.cms-school-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(10,15,30,0.25);
+    pointer-events: none;
+}
+
+.cms-school-content {
+    position: relative;
+    text-align: center;
+}
+
+.cms-school-title {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cms-school-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+.cms-school-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.cms-school-card {
+    background: white;
+    padding: 40px 26px 34px;
+    border-radius: 0;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cms-school-card:hover {
+    background: rgba(26,33,81,0.8) !important;
+}
+
+.cms-school-card-icon {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.cms-school-card:hover .cms-school-card-icon {
+    filter: brightness(0) invert(1);
+}
+
+.cms-school-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.cms-school-card:hover .cms-school-card-title {
+    color: white !important;
+}
+
+.cms-school-card-desc {
+    font-size: 16px;
+    color: #777;
+    white-space: pre-line;
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+.cms-school-card:hover .cms-school-card-desc {
+    color: white !important;
+}
+
+/* Gallery Section */
+.cms-gallery {
+    padding: 60px 0 70px;
+    background: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cms-gallery-title {
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+    color: #222;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.cms-gallery-container {
+    overflow: hidden;
+    width: 100%;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+.cms-gallery-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.cms-gallery-slide {
+    flex-shrink: 0;
+}
+
+.cms-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cms-gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding: 0 16px;
+}
+
+.cms-gallery-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.cms-gallery-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.cms-gallery-dot {
+    height: 8px;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Footer Section */
+.cms-footer {
+    background: #1a2038;
+    padding: 40px 0 36px;
+}
+
+.cms-footer-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.cms-footer-text-1 {
+    color: rgba(255,255,255,0.95);
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.cms-footer-text-2 {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.cms-footer-divider {
+    width: 28px;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin-bottom: 12px;
+}
+
+.cms-footer-text-3 {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.cms-footer-right {
+    display: flex;
+    align-items: flex-start;
+}
+
+.cms-footer-copyright {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+}
+
+.cms-footer-design {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+}
+
+/* FadeUp Utilities */
+.cms-fade-up {
+    opacity: 0;
+    transform: translateY(36px);
+    transition-property: opacity, transform;
+    transition-timing-function: ease;
+    height: 100%;
+}
+
+.cms-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries for Responsive Tailwind Classes */
+@media (min-width: 768px) {
+    .cms-nav {
+        display: flex;
+    }
+    .cms-hamburger {
+        display: none;
+    }
+    .cms-welcome-inner {
+        flex-direction: row;
+    }
+    .cms-three-cards-inner {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .cms-school-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .cms-footer-inner {
+        flex-direction: row;
+    }
+    .cms-footer-right {
+        align-items: flex-end;
+        text-align: right;
+    }
+}
